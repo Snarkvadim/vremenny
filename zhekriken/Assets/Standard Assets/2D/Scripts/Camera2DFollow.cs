@@ -16,9 +16,15 @@ namespace UnityStandardAssets._2D
         private Vector3 m_CurrentVelocity;
         private Vector3 m_LookAheadPos;
 
+        [Range(-1, 1)]
+        [SerializeField]
+        public float yPosition = 0.5f;
+
+        private Camera _camera;
+
         // Use this for initialization
-        private void Start()
-        {
+        private void Start(){
+            _camera = GetComponent<Camera>();
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
             transform.parent = null;
@@ -28,8 +34,9 @@ namespace UnityStandardAssets._2D
         // Update is called once per frame
         private void Update()
         {
+            Vector3 ofPosition = new Vector3(target.position.x, target.position.y - yPosition * _camera.orthographicSize);
             // only update lookahead pos if accelerating or changed direction
-            float xMoveDelta = (target.position - m_LastTargetPosition).x;
+            float xMoveDelta = (ofPosition - m_LastTargetPosition).x;
 
             bool updateLookAheadTarget = Mathf.Abs(xMoveDelta) > lookAheadMoveThreshold;
 
@@ -42,12 +49,12 @@ namespace UnityStandardAssets._2D
                 m_LookAheadPos = Vector3.MoveTowards(m_LookAheadPos, Vector3.zero, Time.deltaTime*lookAheadReturnSpeed);
             }
 
-            Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ;
+            Vector3 aheadTargetPos = ofPosition + m_LookAheadPos + Vector3.forward * m_OffsetZ;
             Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
 
             transform.position = newPos;
 
-            m_LastTargetPosition = target.position;
+            m_LastTargetPosition = ofPosition;
         }
     }
 }
