@@ -18,7 +18,11 @@ namespace UnityStandardAssets._2D
 
         [Range(-1, 1)]
         [SerializeField]
-        public float yPosition = 0.5f;
+        public float yPosition = 0.0f;
+
+        [Range(-1, 1)]
+        [SerializeField]
+        public float xPosition = 0.0f;
 
         private Camera _camera;
 
@@ -34,7 +38,7 @@ namespace UnityStandardAssets._2D
         // Update is called once per frame
         private void Update()
         {
-            Vector3 ofPosition = new Vector3(target.position.x, target.position.y - yPosition * _camera.orthographicSize);
+            Vector3 ofPosition = new Vector3(target.position.x - xPosition * _camera.orthographicSize * ((float)Screen.width / (float)Screen.height), target.position.y - yPosition * _camera.orthographicSize);
             // only update lookahead pos if accelerating or changed direction
             float xMoveDelta = (ofPosition - m_LastTargetPosition).x;
 
