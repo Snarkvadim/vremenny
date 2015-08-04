@@ -6,6 +6,7 @@ public class BackgroundParallax : MonoBehaviour
 	public Transform[] backgrounds;				// Array of all the backgrounds to be parallaxed.
 
     public float[] reduceFactors;
+    public float[] reduceFactorsY;
 	public float smoothing;						// How smooth the parallax effect should be.
 
     public float parallaxScaleY;					// The proportion of the camera's movement to move the backgrounds by.
@@ -44,18 +45,25 @@ public class BackgroundParallax : MonoBehaviour
 		// For each successive background...
 		for(int i = 0; i < backgrounds.Length; i++){
 		    float rf;
+		    float rfY;
 			// ... set a target x position which is their current position plus the parallax multiplied by the reduction.
 		    if (reduceFactors.Length > i)
 		        rf = reduceFactors[i];
 		    else{
 		        rf = 1;
 		    }
+            if (reduceFactorsY.Length > i)
+                rfY = reduceFactorsY[i];
+            else {
+                rfY = 1;
+            }
             float backgroundTargetPosX = backgrounds[i].position.x - reduceFactor + parallax * rf;
-			float backgroundTargetPosY = backgrounds[i].position.y + parallaxY * (i * parallaxReductionFactorY + 1);
+            float backgroundTargetPosY = backgrounds[i].position.y + parallaxY - parallaxY * rf;// + parallaxY*0.1f * (i * parallaxReductionFactorY + 1);
 
 
 			// Lerp the background's position between itself and it's target position.
             backgrounds[i].position = new Vector3(backgroundTargetPosX, Mathf.Lerp(backgrounds[i].position.y, backgroundTargetPosY, smoothing * Time.deltaTime));
+//            backgrounds[i].position = new Vector3(backgroundTargetPosX, backgroundTargetPosY);
 		}
 
 		// Set the previousCamPos to the camera's position at the end of this frame.
