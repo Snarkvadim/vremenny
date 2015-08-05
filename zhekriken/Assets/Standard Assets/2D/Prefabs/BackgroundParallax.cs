@@ -5,12 +5,11 @@ public class BackgroundParallax : MonoBehaviour
 {
 	public Transform[] backgrounds;				// Array of all the backgrounds to be parallaxed.
 
-    public float[] reduceFactors;
+    public float[] reduceFactorsX;
     public float[] reduceFactorsY;
 	public float smoothing;						// How smooth the parallax effect should be.
 
-    public float parallaxScaleY;					// The proportion of the camera's movement to move the backgrounds by.
-    public float parallaxReductionFactorY;		// How much less each successive layer should parallax.
+    private const int parallaxScaleY = 6; // The proportion of the camera's movement to move the backgrounds by.
 
 
 	private Transform cam;						// Shorter reference to the main camera's transform.
@@ -47,8 +46,8 @@ public class BackgroundParallax : MonoBehaviour
 		    float rf;
 		    float rfY;
 			// ... set a target x position which is their current position plus the parallax multiplied by the reduction.
-		    if (reduceFactors.Length > i)
-		        rf = reduceFactors[i];
+		    if (reduceFactorsX.Length > i)
+		        rf = reduceFactorsX[i];
 		    else{
 		        rf = 1;
 		    }
@@ -58,7 +57,7 @@ public class BackgroundParallax : MonoBehaviour
                 rfY = 1;
             }
             float backgroundTargetPosX = backgrounds[i].position.x - reduceFactor + parallax * rf;
-            float backgroundTargetPosY = backgrounds[i].position.y + parallaxY - parallaxY * rf;// + parallaxY*0.1f * (i * parallaxReductionFactorY + 1);
+            float backgroundTargetPosY = backgrounds[i].position.y + parallaxY - parallaxY * rfY;// + parallaxY*0.1f * (i * parallaxReductionFactorY + 1);
 
 
 			// Lerp the background's position between itself and it's target position.
