@@ -9,6 +9,7 @@ namespace UnityStandardAssets._2D
     {
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
+        private bool m_Controlled = true;            // Player have control.
 
 
         private void Awake()
@@ -16,6 +17,10 @@ namespace UnityStandardAssets._2D
             m_Character = GetComponent<PlatformerCharacter2D>();
         }
 
+        public void Controlled(bool controlled) {
+            m_Controlled = controlled;
+            m_Character.Move(0, false, false);
+        }
 
         private void Update()
         {
@@ -29,12 +34,14 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
-            // Read the inputs.
-            bool crouch = Input.GetKey(KeyCode.LeftControl);
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            // Pass all parameters to the character control script.
-            m_Character.Move(h, crouch, m_Jump);
-            m_Jump = false;
+            if (m_Controlled){
+                // Read the inputs.
+                bool crouch = Input.GetKey(KeyCode.LeftControl);
+                float h = CrossPlatformInputManager.GetAxis("Horizontal");
+                // Pass all parameters to the character control script.
+                m_Character.Move(h, crouch, m_Jump);
+                m_Jump = false;
+            }
         }
     }
 }
