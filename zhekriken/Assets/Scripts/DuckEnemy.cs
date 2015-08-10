@@ -8,6 +8,8 @@ public class DuckEnemy : MonoBehaviour{
     public GameObject bubblePosition;
     public GameObject bubblePrefab;
 
+    public float TimeBetweenShoots = 3F;
+
 
 	// Use this for initialization
 	void Awake () {
@@ -15,7 +17,8 @@ public class DuckEnemy : MonoBehaviour{
 	}
 
     void Start(){
-//        InvokeRepeating("BubbleShot", 2f, 3f);
+        player = GameObject.FindGameObjectWithTag("Player");
+        InvokeRepeating("BubbleShot", TimeBetweenShoots, TimeBetweenShoots);
     }
 	// Update is called once per frame
 	void Update () {
@@ -39,14 +42,9 @@ public class DuckEnemy : MonoBehaviour{
 
     void BubbleShot(){
         GameObject bubble = Instantiate(bubblePrefab);
-        bubble.transform.SetParent(gameObject.transform);
+//        bubble.transform.SetParent(gameObject.transform);
         bubble.transform.position = bubblePosition.transform.position;
         
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.tag == "Player"){
-            player = col.gameObject;
-        }
-    }
 }

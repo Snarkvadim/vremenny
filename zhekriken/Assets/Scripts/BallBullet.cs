@@ -24,7 +24,7 @@ public class BallBullet : MonoBehaviour{
             gameObject.transform.position = Vector3.Lerp(currentPosition, player.transform.position,
                 Time.deltaTime/(player.transform.position - currentPosition).magnitude*bulletSpeed);
             Debug.Log(gameObject.transform.localScale.x);
-            if (gameObject.transform.localScale.x < 4F)
+            if (gameObject.transform.localScale.x < 1F)
             gameObject.transform.localScale = gameObject.transform.localScale + new Vector3(0.005F, 0.005F);
         }
     }

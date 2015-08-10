@@ -14,13 +14,15 @@ public class PlayerInBubble : MonoBehaviour{
 
 
     public void Bubble(){
-        gameObject.SendMessage("Controlled", false);
-        bubble = Instantiate(bubblePrefab);
-        bubble.transform.position = Vector3.zero;
-        bubble.transform.SetParent(gameObject.transform, false);
-        _isInBubble = true;
-        m_Rigidbody2D.isKinematic = true;
-        _time = 0F;
+        if (!_isInBubble){
+            gameObject.SendMessage("Controlled", false);
+            bubble = Instantiate(bubblePrefab);
+            bubble.transform.position = Vector3.zero;
+            bubble.transform.SetParent(gameObject.transform, false);
+            _isInBubble = true;
+            m_Rigidbody2D.isKinematic = true;
+            _time = 0F;
+        }
     }
 
     private void Start(){
