@@ -11,6 +11,7 @@ public class DuckEnemy : MonoBehaviour{
     private bool _playerInTrigger = true;
 
     public float TimeBetweenShoots = 3F;
+    public float DelayBeforeFirstShoot = 3F;
 
 
 	// Use this for initialization
@@ -20,7 +21,7 @@ public class DuckEnemy : MonoBehaviour{
 
     void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
-        InvokeRepeating("BubbleShot", TimeBetweenShoots, TimeBetweenShoots);
+        InvokeRepeating("BubbleShot", DelayBeforeFirstShoot, TimeBetweenShoots);
     }
 	// Update is called once per frame
 	void Update () {
@@ -56,7 +57,7 @@ public class DuckEnemy : MonoBehaviour{
         }
         else{
             CancelInvoke("BubbleShot");
-            InvokeRepeating("BubbleShot", TimeBetweenShoots, TimeBetweenShoots);
+            InvokeRepeating("BubbleShot", DelayBeforeFirstShoot, TimeBetweenShoots);
         }
     }
 
