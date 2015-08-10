@@ -8,6 +8,8 @@ public class DuckEnemy : MonoBehaviour{
     public GameObject bubblePosition;
     public GameObject bubblePrefab;
 
+    private bool _playerInTrigger = true;
+
     public float TimeBetweenShoots = 3F;
 
 
@@ -22,7 +24,7 @@ public class DuckEnemy : MonoBehaviour{
     }
 	// Update is called once per frame
 	void Update () {
-	    if (player != null){
+        if (player != null && _playerInTrigger) {
             Vector3 tempVector = player.transform.position - transform.position;
             float angle = Vector3.Angle(new Vector3(1f, 0f, 0f), tempVector);
             if (tempVector.y < 0f)
@@ -45,6 +47,17 @@ public class DuckEnemy : MonoBehaviour{
 //        bubble.transform.SetParent(gameObject.transform);
         bubble.transform.position = bubblePosition.transform.position;
         
+    }
+
+    void PlayerInTrigger(bool inTrigger){
+        _playerInTrigger = inTrigger;
+        if (!inTrigger){
+            CancelInvoke("BubbleShot");
+        }
+        else{
+            CancelInvoke("BubbleShot");
+            InvokeRepeating("BubbleShot", TimeBetweenShoots, TimeBetweenShoots);
+        }
     }
 
 }

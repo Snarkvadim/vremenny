@@ -6,8 +6,13 @@ public class BallBullet : MonoBehaviour{
     private GameObject player;
     private bool bubbled = false;
 
+    private float _time;
+
+    public float LifeTime;
+
     private void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
+        _time = 0F;
     }
 
     void OnTriggerEnter2D(Collider2D col) {
@@ -25,6 +30,11 @@ public class BallBullet : MonoBehaviour{
                 Time.deltaTime/(player.transform.position - currentPosition).magnitude*bulletSpeed);
             if (gameObject.transform.localScale.x < 1F)
             gameObject.transform.localScale = gameObject.transform.localScale + new Vector3(0.005F, 0.005F);
+
+            _time += Time.deltaTime;
+            if (_time > LifeTime) {
+                Destroy(gameObject);
+            }
         }
     }
 }
