@@ -7,13 +7,23 @@ public class WindowEnemy : MonoBehaviour{
     public GameObject EnemyToSpawn;
     private GameObject enemy;
 
+    private bool _isExplose = false;
+
+    public AudioClip ExplosionSound;
+
     private void Awake(){
         anim = GetComponent<Animator>();
+        
     }
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Player") {
-            anim.SetBool("Explose", true);
+            if (!_isExplose){
+                anim.SetBool("Explose", true);
+                if (ExplosionSound != null)
+                    AudioSource.PlayClipAtPoint(ExplosionSound, transform.position);
+                _isExplose = true;
+            }
             if (enemy != null) {
                 enemy.SendMessage("PlayerInTrigger", true);
             }
