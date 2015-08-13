@@ -2,7 +2,7 @@
 
 public class API : MonoBehaviour {
     private static API instance;
-    public AudioClip BackGroundSound;
+    public AudioClip BackgroundSound;
     public AudioClip BubbleCrashSound;
     public AudioClip BubbleShootSound;
     public AudioClip ExplosionSound;
@@ -23,10 +23,9 @@ public class API : MonoBehaviour {
         }
     }
 
-    void Awake()
-    {
+    private void Awake() {
         instance = this;
-        PlayBackground(BackGroundSound);
+        PlayBackground(BackgroundSound);
     }
 
     public void PlayBackground(AudioClip audio) {

@@ -1,20 +1,18 @@
 ﻿using UnityEngine;
 
-public class PlayerInBubble : MonoBehaviour{
-    private Animator _anim;
-    public GameObject bubblePrefab;
-    private GameObject bubble;
-    private bool _isInBubble = false;
-    Rigidbody2D m_Rigidbody2D;
-
+public class PlayerInBubble : MonoBehaviour {
     public float TimeInBubble;
+    private Animator _anim;
+    private bool _isInBubble;
 
     private float _time;
+    private GameObject bubble;
+    public GameObject bubblePrefab;
+    private Rigidbody2D m_Rigidbody2D;
 
 
-
-    public void Bubble(){
-        if (!_isInBubble){
+    public void Bubble() {
+        if (!_isInBubble) {
             gameObject.SendMessage("Controlled", false);
             bubble = Instantiate(bubblePrefab);
             bubble.transform.position = Vector3.zero;
@@ -25,18 +23,18 @@ public class PlayerInBubble : MonoBehaviour{
         }
     }
 
-    private void Start(){
+    private void Start() {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void Update(){
-        if (_isInBubble){
+    private void Update() {
+        if (_isInBubble) {
             _time += Time.deltaTime;
-            if (_time < TimeInBubble){
+            if (_time < TimeInBubble) {
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x,
                     gameObject.transform.position.y + 0.1f);
             }
-            else{
+            else {
                 API.Instance.PlaySound(API.Instance.BubbleCrashSound);
                 _isInBubble = false;
                 Destroy(bubble);

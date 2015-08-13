@@ -1,26 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-[RequireComponent(typeof(Collider2D))]
-public class WindowEnemy : MonoBehaviour{
-    private Animator anim;
+[RequireComponent(typeof (Collider2D))]
+public class WindowEnemy : MonoBehaviour {
     public GameObject EnemyToSpawn;
+
+    private bool _isExplose;
+    private Animator anim;
     private GameObject enemy;
 
-    private bool _isExplose = false;
 
-    
-
-    private void Awake(){
+    private void Awake() {
         anim = GetComponent<Animator>();
-        
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
+    private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Player") {
-            if (!_isExplose){
+            if (!_isExplose) {
                 anim.SetBool("Explose", true);
-                    API.Instance.PlaySound(API.Instance.ExplosionSound);
+                API.Instance.PlaySound(API.Instance.ExplosionSound);
                 _isExplose = true;
             }
             if (enemy != null) {
@@ -29,20 +26,19 @@ public class WindowEnemy : MonoBehaviour{
         }
     }
 
-    void OnTriggerExit2D(Collider2D col){
+    private void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.tag == "Player") {
-            if (enemy != null){
+            if (enemy != null) {
                 enemy.SendMessage("PlayerInTrigger", false);
             }
         }
     }
 
-    void RespawnEnemy(){
-        if (EnemyToSpawn != null){
+    private void RespawnEnemy() {
+        if (EnemyToSpawn != null) {
             enemy = Instantiate(EnemyToSpawn);
             enemy.transform.position = gameObject.transform.position;
             enemy.transform.SetParent(gameObject.transform.parent);
         }
     }
-   
 }
