@@ -9,7 +9,7 @@ public class WindowEnemy : MonoBehaviour{
 
     private bool _isExplose = false;
 
-    public AudioClip ExplosionSound;
+    
 
     private void Awake(){
         anim = GetComponent<Animator>();
@@ -20,8 +20,7 @@ public class WindowEnemy : MonoBehaviour{
         if (col.gameObject.tag == "Player") {
             if (!_isExplose){
                 anim.SetBool("Explose", true);
-                if (ExplosionSound != null)
-                    AudioSource.PlayClipAtPoint(ExplosionSound, transform.position);
+                    API.Instance.PlaySound(API.Instance.ExplosionSound);
                 _isExplose = true;
             }
             if (enemy != null) {

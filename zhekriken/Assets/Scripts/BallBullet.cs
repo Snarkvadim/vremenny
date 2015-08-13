@@ -11,6 +11,7 @@ public class BallBullet : MonoBehaviour{
     public float LifeTime;
 
     private void Start(){
+        API.Instance.PlaySound(API.Instance.BubbleShootSound);
         player = GameObject.FindGameObjectWithTag("Player");
         _time = 0F;
     }
