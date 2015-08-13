@@ -1,11 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{3FC9B6FD-C588-3E26-9D98-F45FD40EA0A4}") = "zhekriken", "Assembly-CSharp-firstpass.csproj", "{75859D01-41FB-EE2E-061A-5D37D4B01380}"
+Project("{3FC9B6FD-C588-3E26-9D98-F45FD40EA0A4}") = "zhekriken", "Assembly-CSharp-firstpass-vs.csproj", "{75859D01-41FB-EE2E-061A-5D37D4B01380}"
 EndProject
-Project("{3FC9B6FD-C588-3E26-9D98-F45FD40EA0A4}") = "zhekriken", "Assembly-CSharp.csproj", "{E884B99B-00DB-07F0-64DC-DF8E59CDFF40}"
+Project("{3FC9B6FD-C588-3E26-9D98-F45FD40EA0A4}") = "zhekriken", "Assembly-CSharp-vs.csproj", "{E884B99B-00DB-07F0-64DC-DF8E59CDFF40}"
 EndProject
-Project("{3FC9B6FD-C588-3E26-9D98-F45FD40EA0A4}") = "zhekriken", "Assembly-CSharp-Editor.csproj", "{58504848-B82D-FF02-6D23-29601901AAFB}"
+Project("{3FC9B6FD-C588-3E26-9D98-F45FD40EA0A4}") = "zhekriken", "Assembly-CSharp-Editor-vs.csproj", "{58504848-B82D-FF02-6D23-29601901AAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-				GlobalSection(MonoDevelopProperties) = preSolution
+					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
