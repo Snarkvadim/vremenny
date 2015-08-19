@@ -12,6 +12,7 @@ public class API : MonoBehaviour {
     private float _volumeBackground = 100;
     private float _volumeSounds = 100;
 
+
     public static API Instance {
         get {
             if (instance == null) {
@@ -38,13 +39,17 @@ public class API : MonoBehaviour {
         _backgroundSound.Play();
     }
 
-    public void PlaySound(AudioClip audio) {
+    public void PlaySound(AudioClip audio, Vector3 point) {
         if (audio != null) {
-            _sound = gameObject.AddComponent<AudioSource>();
-            _sound.loop = false;
-            _sound.clip = audio;
-            _sound.volume = _volumeSounds;
-            _sound.Play();
+//            _sound = gameObject.AddComponent<AudioSource>();
+//            _sound.loop = false;
+//            _sound.clip = audio;
+//            _sound.volume = _volumeSounds;
+//            _sound.Play();
+
+            AudioSource.PlayClipAtPoint(audio, point);
         }
     }
+
+
 }
