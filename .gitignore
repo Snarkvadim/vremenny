@@ -9,3 +9,5 @@
 /zhekriken/Temp
 /zhekriken/Build
 *.sln
+zhekriken/zhekriken-csharp.suo
+*.csproj
