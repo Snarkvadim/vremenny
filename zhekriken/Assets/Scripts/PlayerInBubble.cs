@@ -35,7 +35,7 @@ public class PlayerInBubble : MonoBehaviour {
                     gameObject.transform.position.y + 0.1f);
             }
             else {
-                API.Instance.PlaySound(API.Instance.BubbleCrashSound);
+                API.Instance.PlaySound(API.Instance.BubbleCrashSound, bubble.transform.position);
                 _isInBubble = false;
                 Destroy(bubble);
                 m_Rigidbody2D.isKinematic = false;
