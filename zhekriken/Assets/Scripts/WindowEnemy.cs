@@ -17,7 +17,7 @@ public class WindowEnemy : MonoBehaviour {
         if (col.gameObject.tag == "Player") {
             if (!_isExplose) {
                 anim.SetBool("Explose", true);
-                API.Instance.PlaySound(API.Instance.ExplosionSound);
+                API.Instance.PlaySound(API.Instance.ExplosionSound, transform.position);
                 _isExplose = true;
             }
             if (enemy != null) {

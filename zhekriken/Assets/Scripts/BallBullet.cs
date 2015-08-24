@@ -8,7 +8,7 @@ public class BallBullet : MonoBehaviour {
     private GameObject player;
 
     private void Start() {
-        API.Instance.PlaySound(API.Instance.BubbleShootSound);
+        API.Instance.PlaySound(API.Instance.BubbleShootSound, transform.position);
         player = GameObject.FindGameObjectWithTag("Player");
         _time = 0F;
     }
