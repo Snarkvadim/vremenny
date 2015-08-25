@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: a79157fc4130c4c41a61295c2bee414f
+timeCreated: 1440079644
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rabbit2_0
+    21300002: rabbit2_1
+    21300004: rabbit2_2
+    21300006: rabbit2_3
+    21300008: rabbit2_4
+    21300010: rabbit2_5
+    21300012: rabbit2_6
+    21300014: rabbit2_7
+    21300016: rabbit2_8
+    21300018: rabbit2_9
+    21300020: rabbit2_10
+    21300022: rabbit2_11
+    21300024: rabbit2_12
+    21300026: rabbit2_13
+    21300028: rabbit2_14
+    21300030: rabbit2_15
+    21300032: rabbit2_16
+    21300034: rabbit2_17
+    21300036: rabbit2_18
+    21300038: rabbit2_19
+    21300040: rabbit2_20
+    21300042: rabbit2_21
+    21300044: rabbit2_22
+    21300046: rabbit2_23
+    21300048: rabbit2_24
+    21300050: rabbit2_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rabbit2_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 536
+        width: 68
+        height: 65
+      alignment: 9
+      pivot: {x: .737248123, y: .56204927}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 531
+        width: 64
+        height: 60
+      alignment: 9
+      pivot: {x: .789887667, y: .540332019}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_2
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 519
+        width: 106
+        height: 73
+      alignment: 9
+      pivot: {x: .850052714, y: .488950133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_3
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 520
+        width: 90
+        height: 66
+      alignment: 9
+      pivot: {x: .86747098, y: .341115326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_4
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 505
+        width: 55
+        height: 61
+      alignment: 9
+      pivot: {x: .822657943, y: .222303048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_5
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 426
+        width: 101
+        height: 45
+      alignment: 9
+      pivot: {x: .412147909, y: .284895152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 427
+        width: 85
+        height: 40
+      alignment: 9
+      pivot: {x: .841637313, y: .399169922}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 401
+        width: 169
+        height: 99
+      alignment: 9
+      pivot: {x: .490454137, y: .271858305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_8
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 401
+        width: 45
+        height: 58
+      alignment: 9
+      pivot: {x: .45958522, y: .860869825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 296
+        width: 78
+        height: 85
+      alignment: 9
+      pivot: {x: .5, y: .153252453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_10
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 299
+        width: 79
+        height: 72
+      alignment: 9
+      pivot: {x: .882649481, y: .846377909}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_11
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 272
+        width: 90
+        height: 112
+      alignment: 9
+      pivot: {x: .726719856, y: .904857635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_12
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 277
+        width: 85
+        height: 49
+      alignment: 9
+      pivot: {x: .0999062955, y: .854733229}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_13
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 160
+        width: 38
+        height: 112
+      alignment: 9
+      pivot: {x: .619326234, y: .877867043}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_14
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 165
+        width: 51
+        height: 83
+      alignment: 9
+      pivot: {x: .781547368, y: .909735262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_15
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 172
+        width: 49
+        height: 38
+      alignment: 9
+      pivot: {x: .5, y: .141278714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_16
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 129
+        width: 72
+        height: 106
+      alignment: 9
+      pivot: {x: .14336437, y: .942616761}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_17
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 144
+        width: 21
+        height: 86
+      alignment: 9
+      pivot: {x: .379233211, y: .831753731}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_18
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 198
+        width: 33
+        height: 37
+      alignment: 9
+      pivot: {x: .875867426, y: .149866462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_19
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 145
+        width: 39
+        height: 34
+      alignment: 9
+      pivot: {x: .482521266, y: .116552912}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_20
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 64
+        width: 68
+        height: 63
+      alignment: 9
+      pivot: {x: .153647706, y: .86790663}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_21
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 46
+        width: 82
+        height: 78
+      alignment: 9
+      pivot: {x: .178542912, y: .90254885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 68
+        width: 22
+        height: 29
+      alignment: 9
+      pivot: {x: .370961964, y: .825128496}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_23
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 61
+        width: 46
+        height: 27
+      alignment: 9
+      pivot: {x: .750631571, y: .735587537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_24
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 2
+        width: 122
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rabbit2_25
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 10
+        width: 156
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
