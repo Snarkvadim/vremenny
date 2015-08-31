@@ -12,6 +12,7 @@ namespace Assets.Scripts {
 //    public Direction direction = Direction.HOLD;
         public bool IsForwardRun;
         public bool IsBackRun;
+        public bool IsJump;
 
 
         public static PlayerControlHolder Instance {
