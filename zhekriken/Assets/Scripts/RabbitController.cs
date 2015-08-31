@@ -64,13 +64,13 @@ public class RabbitController : MonoBehaviour {
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius);
-        Debug.Log("colliders - " + colliders.Count());
+//        Debug.Log("colliders - " + colliders.Count());
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject && !colliders[i].isTrigger)
                 m_Grounded = true;
         }
-        Debug.Log("Grounded - "+m_Grounded);
+//        Debug.Log("Grounded - "+m_Grounded);
 //        m_Anim.SetBool("Ground", m_Grounded);
 
         // Set the vertical animation
