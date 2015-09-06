@@ -3,7 +3,9 @@
 //    BACK, 
 //    HOLD
 //}
-
+using Assets.Scripts.Controller;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Assets.Scripts {
     public class PlayerControlHolder {
@@ -26,6 +28,24 @@ namespace Assets.Scripts {
 
         protected PlayerControlHolder() {
         
+        }
+
+        public void SwipeControl(UserAction action){
+            if (action == UserAction.SWIPE_RIGHT && IsBackRun){
+                IsBackRun = false;
+            }
+            else if (action == UserAction.SWIPE_RIGHT && !IsBackRun) {
+                IsForwardRun = true;
+            }
+            else if (action == UserAction.SWIPE_LEFT && IsForwardRun) {
+                IsForwardRun = false;
+            }
+            else if (action == UserAction.SWIPE_LEFT && !IsForwardRun) {
+                IsBackRun = true;
+            }
+            else if (action == UserAction.SWIPE_UP) {
+                IsJump = true;
+            }
         }
     }
 }
