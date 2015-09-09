@@ -7,6 +7,8 @@ public class API : MonoBehaviour {
     public AudioClip BubbleShootSound;
     public AudioClip ExplosionSound;
 
+    public GameObject ControllerSwitcher;
+
     private AudioSource _backgroundSound;
     private AudioSource _sound;
     private float _volumeBackground = 100;
@@ -48,6 +50,13 @@ public class API : MonoBehaviour {
 //            _sound.Play();
 
             AudioSource.PlayClipAtPoint(audio, point);
+        }
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ControllerSwitcher.SetActive(true);
         }
     }
 

@@ -25,8 +25,10 @@ public class TouchLine : MonoBehaviour{
     }
 
     private void OnTouchEndedEvent(int touchId) {
+        if (lineRenderers.ContainsKey(touchId))
         lineRenderers[touchId].SetVertexCount(0);
         i = 0;
+        if (linePositions.ContainsKey(touchId))
         linePositions[touchId].Clear();
     }
 
