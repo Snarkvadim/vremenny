@@ -18,7 +18,7 @@ public class RabbitController : MonoBehaviour{
     private void Update(){
     }
 
-    public void Move(float move, bool jump){
+    public void Move(float move){
         // The Speed animator parameter is set to the absolute value of the horizontal input.
 //            m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
@@ -37,10 +37,20 @@ public class RabbitController : MonoBehaviour{
         }
         // If the player should jump...
 //        if (m_Grounded && jump && m_Anim.GetBool("Ground"))
-        if (m_Grounded && jump){
+//        if (m_Grounded && jump){
+//            // Add a vertical force to the player.
+//            m_Grounded = false;
+////            m_Anim.SetBool("Ground", false);
+//            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+//        }
+    }
+
+    public void Jump() {
+        if (m_Grounded)
+        {
             // Add a vertical force to the player.
             m_Grounded = false;
-//            m_Anim.SetBool("Ground", false);
+            //            m_Anim.SetBool("Ground", false);
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
     }
