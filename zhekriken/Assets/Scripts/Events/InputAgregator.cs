@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -34,9 +35,68 @@ public class InputAggregator : MonoBehaviour {
     }
 
     private void Update() {
-        onTouchEvent();
+//        onTouchEvent();
+        onTouchEventUI();
 //        onMouseEvent();
     }
+
+    private void onTouchEventUI() {
+        if (Input.touchCount > 0) {
+//            Debug.LogError("Input.touchCount - " + Input.touchCount);
+            foreach (Touch touch in Input.touches) {
+                var pointer = new PointerEventData(EventSystem.current);
+                pointer.position = touch.position;
+
+                var raycastResults = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointer, raycastResults);
+
+                foreach (RaycastResult raycastResult in raycastResults) {
+                    if (raycastResult.gameObject.name.Equals("ForwardBTN")) {
+                        OnMoveEvent(1);
+                    }
+                    if (raycastResult.gameObject.name.Equals("BackBTN"))
+                    {
+                        OnMoveEvent(-1);
+                    }
+                    if (raycastResult.gameObject.name.Equals("JumpBTN")&&touch.phase==TouchPhase.Began)
+                    {
+                        OnJumpEvent();
+                    }
+                }
+            }
+        }
+        else {
+            onMouseEventUI();
+        }
+    }
+
+    private void onMouseEventUI() {
+        if (Input.GetMouseButton(0)) {
+//            Debug.LogError("MouseClick");
+            var pointer = new PointerEventData(EventSystem.current);
+            pointer.position = Input.mousePosition;
+
+            var raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointer, raycastResults);
+
+            if (raycastResults.Count > 0) {
+                if (raycastResults[0].gameObject.name.Equals("ForwardBTN")) {
+                    OnMoveEvent(1);
+                }
+                else if (raycastResults[0].gameObject.name.Equals("BackBTN")) {
+                    OnMoveEvent(-1);
+                }
+                else if (raycastResults[0].gameObject.name.Equals("JumpBTN") && Input.GetMouseButtonDown(0)) {
+                    OnJumpEvent();
+                }
+//                Debug.LogError(raycastResults[0].gameObject.name);
+            }
+        }
+        else {
+            OnMoveEvent(0); 
+        }
+    }
+
 
     private void onTouchEvent() {
 //        if (Input.touchCount > 0) {
@@ -72,14 +132,13 @@ public class InputAggregator : MonoBehaviour {
                     }
                 }
                 else if (touch.phase == TouchPhase.Began &&
-                    (touchScreenPosition.x <= Screen.width/2 && touchScreenPosition.y > Screen.height/2)) {
+                         (touchScreenPosition.x <= Screen.width/2 && touchScreenPosition.y > Screen.height/2)) {
                     if (OnJumpEvent != null) {
                         Debug.LogError("Jump");
                         OnJumpEvent();
                     }
                 }
             }
-
         }
         else {
             onMouseEvent();
@@ -105,8 +164,7 @@ public class InputAggregator : MonoBehaviour {
 //            OnTouchMoveEvent(0, Input.mousePosition);
 //        }
 
-        if (Input.GetMouseButton(0))
-        {
+        if (Input.GetMouseButton(0)) {
             Vector3 touchScreenPosition = Input.mousePosition;
             if (touchScreenPosition.x <= Screen.width/2 && touchScreenPosition.y <= Screen.height/2) {
                 if (OnMoveEvent != null) {
