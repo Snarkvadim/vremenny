@@ -7,12 +7,14 @@ public class RabbitController : MonoBehaviour{
     private Transform m_GroundCheck; // A position marking where to check if the player is grounded.
     private bool m_Grounded; // Whether or not the player is grounded.
     [SerializeField] private float m_JumpForce = 400f;
+    private Animator anim;
     private Rigidbody2D m_Rigidbody2D;
     [SerializeField] private LayerMask m_WhatIsGround;
 
     private void Awake(){
         m_GroundCheck = transform.Find("GroundCheck");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update(){
@@ -20,7 +22,7 @@ public class RabbitController : MonoBehaviour{
 
     public void Move(float move){
         // The Speed animator parameter is set to the absolute value of the horizontal input.
-//            m_Anim.SetFloat("Speed", Mathf.Abs(move));
+        anim.SetFloat("Speed", Mathf.Abs(move));
 
         // Move the character
         m_Rigidbody2D.velocity = new Vector2(move*Speed, m_Rigidbody2D.velocity.y);
@@ -70,16 +72,12 @@ public class RabbitController : MonoBehaviour{
 //        m_Anim.SetBool("Ground", m_Grounded);
 
         // Set the vertical animation
-//        m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+//        anim.SetFloat("Speed", m_Rigidbody2D.velocity.y);
     }
 
     private void Flip(){
-        // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
+        transform.RotateAround(transform.position, Vector3.up, 180f);
 
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
     }
 }
